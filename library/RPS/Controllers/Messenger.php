@@ -2,7 +2,7 @@
 
 class RPS_Controllers_Messenger extends Zend_Controller_Action
 {
-
+    
 
 
     public function preDispatch ()

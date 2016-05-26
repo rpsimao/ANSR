@@ -21,7 +21,7 @@ class RPS_Views_Helper_Admin extends Zend_View_Helper_Abstract
         if ($this->auth->hasIdentity()) {
             $this->identity = $this->auth->getIdentity();
 
-            if ($this->identity->roles == "admin") {
+            if ($this->identity->admin == 1) {
                 return TRUE;
 
             }

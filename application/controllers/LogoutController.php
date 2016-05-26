@@ -1,6 +1,6 @@
 <?php
 
-class Default_LogoutController extends Zend_Controller_Action
+class LogoutController extends Zend_Controller_Action
 {
 
     public function init()

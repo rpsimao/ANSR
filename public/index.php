@@ -6,7 +6,7 @@ defined('APPLICATION_PATH')
 
 // Define application environment
 defined('APPLICATION_ENV')
-|| define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'production'));
+|| define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'development'));
 
 // Ensure library/ is on include_path
 set_include_path(implode(PATH_SEPARATOR, array(
@@ -14,13 +14,24 @@ set_include_path(implode(PATH_SEPARATOR, array(
     get_include_path(),
 )));
 
+set_include_path(implode(PATH_SEPARATOR, array(
+    realpath(APPLICATION_PATH . '/../vendor/zendframework/zendframework1/library'),
+    get_include_path(),
+)));
+
+
+
 /** Zend_Application */
 require_once 'Zend/Application.php';
 
 // Create application, bootstrap, and run
 $application = new Zend_Application(
     APPLICATION_ENV,
-    APPLICATION_PATH . '/configs/application.ini'
+    array(
+        'config' => array(
+            APPLICATION_PATH . '/configs/application.ini',
+            APPLICATION_PATH . '/configs/local.ini'
+        )
+    )
 );
-$application->bootstrap()
-    ->run();
+$application->bootstrap()->run();

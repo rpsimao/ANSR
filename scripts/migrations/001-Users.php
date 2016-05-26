@@ -30,8 +30,15 @@ class Users extends Akrabat_Db_Schema_AbstractChange
         $data['password'] = 'admin';
         $data['admin'] = 1;
 
+        $data1 = array();
+        $data1['username'] = 'user';
+        $data1['password'] = 'user';
+        $data1['admin'] = 0;
+
 
         $this->_db->insert('users', $data);
+        $this->_db->insert('users', $data1);
+
 
     }
 

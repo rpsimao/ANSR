@@ -13,3 +13,4 @@ library/Zend/
 application/configs/local.ini
 .gitignore
 
+vendor/

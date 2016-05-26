@@ -1,0 +1,45 @@
+
+			<div class="col-md-12">
+				<h2>Dashboard </h2>
+			</div>
+		</div>
+		<!-- /. ROW  -->
+		<hr />
+
+
+
+		<div class="row text-center pad-top">
+			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+				<div class="div-square">
+					<a href="/dashboard/listagem">
+						<i class="fa fa-database fa-5x"></i>
+						<h4>Listagem</h4>
+					</a>
+				</div>
+			</div>
+
+			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+				<div class="div-square">
+					<a href="/search">
+						<i class="fa fa-search fa-5x"></i>
+						<h4>Procurar</h4>
+					</a>
+				</div>
+			</div>
+
+			<?php if($this->Admin()): ?>
+
+				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+					<div class="div-square">
+						<a href="/search">
+							<i class="fa fa-cogs fa-5x"></i>
+							<h4>Definições</h4>
+						</a>
+					</div>
+				</div>
+
+			<?php endif; ?>
+
+
+		</div>
+

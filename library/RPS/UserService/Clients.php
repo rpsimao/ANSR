@@ -179,6 +179,9 @@ class RPS_UserService_Clients extends Zend_Controller_Action_Helper_Redirector
             case Zend_Auth_Result::FAILURE_IDENTITY_NOT_FOUND:
             case Zend_Auth_Result::FAILURE_CREDENTIAL_INVALID:
 
+            $flashmessenger = Zend_Controller_Action_HelperBroker::getExistingHelper('FlashMessenger');
+            $flashmessenger->addMessage("Utilizador ou Palavra-passe errado.");
+
             $this->_redirect("/");
             break;
             //Autenticado redireciona para o controlador que se pretende
