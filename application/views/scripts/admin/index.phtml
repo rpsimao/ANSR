@@ -54,45 +54,52 @@
 		<hr />
 	</div>
 
+<form action="/admin" method="post">
 <div class="row">
 	<div class="col-lg-8">
 		<i class="fa fa-server"></i> Polycom
 		<div class="input-group input-group-md">
 
 			<label class="sr-only" for="polycom">Polycom</label>
-			<input type="text" name="polycom" class="form-control input-md" id="polycom" placeholder="Localização">
+			<input type="text" name="polycom" class="form-control input-md" id="polycom" placeholder="Localização" value="<?=$this->uri[0]['polycom']?>">
       <span class="input-group-btn">
         <button class="btn btn-primary btn-md" type="submit"><i class="fa fa-chain"></i> Alterar</button>
       </span>
 		</div>
+
 	</div>
 </div>
+</form>
 
-
+<form action="/admin" method="post">
 <div class="row" style="padding-top: 8px;">
 	<div class="col-lg-8">
 		<i class="fa fa-server"></i> SAN
 		<div class="input-group input-group-md">
 
 			<label class="sr-only" for="san">SAN</label>
-			<input type="text" name="san" class="form-control input-md" id="san" placeholder="Localização">
+			<input type="text" name="san" class="form-control input-md" id="san" placeholder="Localização" value="<?=$this->uri[0]['san']?>">
       <span class="input-group-btn">
         <button class="btn btn-primary btn-md" type="submit"><i class="fa fa-chain"></i> Alterar</button>
       </span>
 		</div>
+
 	</div>
 </div>
-
+</form>
+<form action="/admin" method="post">
 <div class="row" style="padding-top: 8px;">
 	<div class="col-lg-8">
 		<i class="fa fa-server"></i> SIGA
 		<div class="input-group input-group-md">
 
 			<label class="sr-only" for="siga">SIGA</label>
-			<input type="text" name="siga" class="form-control input-md" id="san" placeholder="Localização">
+			<input type="text" name="siga" class="form-control input-md" id="san" placeholder="Localização" value="<?=$this->uri[0]['siga']?>">
       <span class="input-group-btn">
         <button class="btn btn-primary btn-md" type="submit"><i class="fa fa-chain"></i> Alterar</button>
       </span>
+
 		</div>
 	</div>
 </div>
+</form>

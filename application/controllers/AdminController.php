@@ -32,6 +32,40 @@ class AdminController extends Zend_Controller_Action
         $db = new Application_Model_Users();
         $this->view->users = $db->getAll();
 
+        $dbE = new Application_Model_Enderecos();
+        $this->view->uri = $dbE->findByID(1);
+
+
+        if($this->getRequest()->isPost()){
+
+
+            $polycom = $this->getRequest()->getParam("polycom");
+            $san = $this->getRequest()->getParam("san");
+            $siga = $this->getRequest()->getParam("siga");
+
+
+            if ($polycom) {
+
+                $dbE->updateRecord(["polycom" => $polycom], 1);
+            }
+            else if ($san)
+            {
+                $dbE->updateRecord(['san' => $san], 1);
+
+            } else {
+
+                $dbE->updateRecord(['siga' => $siga], 1);
+            }
+
+            $this->view->uri = $dbE->findByID(1);
+
+
+
+
+        }
+
+        
+
     }
 
     public function newuserAction()
