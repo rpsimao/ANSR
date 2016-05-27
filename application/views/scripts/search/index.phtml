@@ -1,4 +1,56 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Search</b> and script/action name <b>index</b></p>
+
+<div class="col-md-12">
+	<h2><i class="fa fa-search"></i> Procurar</h2>
 </div>
+</div>
+
+
+<!-- /. ROW  -->
+<hr />
+
+<div class="col-md-offset-1 col-md-6">
+
+	Procurar por nome de processo
+	<form class="form-inline "method="post" action="/search/processo">
+		<div class="form-group">
+			<label class="sr-only" for="exampleInputAmount">Procurar por nome de processo:</label>
+			<div class="input-group">
+				<div class="input-group-addon"><i class="fa fa-wpforms"></i></div>
+				<input type="text" name="nome" class="form-control" id="exampleInputAmount" placeholder="Processo">
+			</div>
+		</div>
+		<button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Procurar</button>
+	</form>
+
+</div>
+
+<div class="col-md-offset-1 col-md-6" style="padding-top: 20px">
+
+	Procurar por data:
+	<form class="form-inline" method="post" action="/search/date">
+		<div class="form-group">
+			<label class="sr-only" for="exampleInputAmount"></label>
+			<div class="input-group">
+				<div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+				<input type="text" name="date" class="form-control" id="datetimepicker1" placeholder="Data ex: 2016-01-31">
+			</div>
+		</div>
+		<button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Procurar</button>
+	</form>
+
+</div>
+
+
+<link href="/assets/datepicker/jquery.datetimepicker.css" rel="stylesheet">
+<script src="/assets/datepicker/moment.js"></script>
+<script src="/assets/datepicker/jquery.datetimepicker.min.js"></script>
+
+<script type="text/javascript">
+	$(function () {
+		$('#datetimepicker1').datetimepicker({
+			locale: 'pt',
+			format: 'YYYY-MM-DD'
+		});
+	});
+</script>
+

@@ -18,8 +18,7 @@ class RPS_Aux_FormElements
      $isSelected = (in_array( $needle, $array)) ? ' selected="selected"' : '';
 
      return $isSelected;
-
-
+        
 
     }
 
@@ -27,8 +26,6 @@ class RPS_Aux_FormElements
 
     public static function select($value)
     {
-
-
 
 
 

@@ -1,0 +1,88 @@
+
+    <div class="col-md-12">
+        <h2>Detalhes <?= $this->escape($this->details[0]['nome']) ?> </h2>
+    </div>
+</div>
+
+
+<!-- /. ROW  -->
+<hr />
+
+<div class="col-md-12">
+
+<table class="table table-bordered table-head table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Data</th>
+            <th>IP Entrada</th>
+            <th>IP Saída</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><?= $this->escape($this->details[0]['arquivo_id']); ?></td>
+            <td><?= $this->escape($this->details[0]['nome']); ?></td>
+            <td><?= $this->escape($this->details[0]['dia']); ?></td>
+            <td><?= $this->escape($this->details[0]['ip_entrada']); ?></td>
+            <td><?= $this->escape($this->details[0]['ip_saida']); ?></td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+
+
+<div class="col-md-12">
+    <h3>Vídeos</h3>
+</div>
+
+<!-- /. ROW  -->
+<hr />
+    
+
+<?php foreach ($this->videos['videos'] as $video): ?>
+
+    <div class="row text-center pad-top">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+            <div class="div-square">
+                <a href="#" data-toggle="modal" data-target="#video-<?= $this->escape($video['nome']) ?>">
+                    <i class="fa fa-video-camera fa-5x"></i>
+                    <h4><?= $this->escape($video['nome']) ?></h4>
+                    <p>Res: <?= $this->escape($video['res']) ?> </p>
+                </a>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="video-<?= $this->escape($video['nome']) ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Video</h4>
+                    </div>
+                    <div class="modal-body">
+                        <video id="my-video-<?= $this->escape($video['nome']) ?>" class="video-js" controls preload="none" <?=RPS_Aux_VideoRES::size($this->escape($video['res']));?>
+                                data-setup="{'playbackRates': [1, 1.5, 2] }">
+                            <source src="http://vjs.zencdn.net/v/oceans.mp4" type='video/mp4'>
+                            <p class="vjs-no-js">
+                                To view this video please enable JavaScript, and consider upgrading to a web browser that
+                                <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                            </p>
+                        </video>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default btn-info" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<?php endforeach; ?>
+
+
+<link href="/assets/vjs/video-js.css" rel="stylesheet">
+<script src="/assets/vjs/videojs-ie8.min.js"></script>
+<script src="/assets/vjs/video.js"></script>

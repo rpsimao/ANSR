@@ -46,5 +46,35 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $view->addHelperPath("RPS/Views/Helper", "RPS_Views_Helper");
     }
 
+    /**
+     * Custom Routes
+     */
+    protected function _initRoutes ()
+    {
+
+
+        $router = Zend_Controller_Front::getInstance()->getRouter();
+
+        $route = new Zend_Controller_Router_Route('admin/userdel/:id', array(
+            'controller' => 'admin',
+            'action' => 'userdel'));
+        $router->addRoute('admin_user_del', $route);
+
+
+        $route = new Zend_Controller_Router_Route('admin/useredit/:id', array(
+            'controller' => 'admin',
+            'action' => 'useredit'));
+        $router->addRoute('admin_useredit', $route);
+
+        $route = new Zend_Controller_Router_Route('dashboard/view/:id', array(
+            'controller' => 'dashboard',
+            'action' => 'view'));
+        $router->addRoute('dashboard_view', $route);
+
+
+
+
+    }
+
 }
 

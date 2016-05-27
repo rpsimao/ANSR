@@ -74,6 +74,30 @@ abstract class RPS_Abstract_CRUD implements RPS_Interfaces_CRUD
 
 
     /**
+     * Insert or Update Record into DB
+     * @param array $values
+     * @return int
+     * @throws Zend_Db_Table_Exception
+     */
+    public function insertORupdate(array $values)
+    {
+
+        if ($values['id'] == NULL)
+        {
+            $this->table->insert($values);
+            return $this->table->getAdapter()->lastInsertId();
+
+        } else {
+
+            $where = $this->table->getAdapter()->quoteInto('id = ?', (int) $values['id']);
+            $this->table->update($values, $where);
+            return "update";
+        }
+
+    }
+
+
+    /**
      * Remove Record from DB
      * @param int $id
      * @return boolean

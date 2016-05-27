@@ -243,3 +243,9 @@ ul {
     border: 1px solid silver;
     padding: 30px;
 }
+
+.table-head thead{
+
+    background-color: #2e6da4;
+    color: white;
+}
