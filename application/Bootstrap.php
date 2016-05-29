@@ -71,6 +71,11 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             'action' => 'view'));
         $router->addRoute('dashboard_view', $route);
 
+        $route = new Zend_Controller_Router_Route('api/rest/*', array(
+            'controller' => 'api',
+            'action' => 'rest'));
+        $router->addRoute('api_rest', $route);
+
 
 
 

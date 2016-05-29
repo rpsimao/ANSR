@@ -17,7 +17,7 @@
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
-    src: local('Open Sans'), local('OpenSans'), url(/assets/fonts/) format('ttf');
+    src: local('Open Sans'), url(/assets/fonts/) format('ttf');
 }
 
 

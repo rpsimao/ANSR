@@ -59,7 +59,7 @@ class AdminController extends Zend_Controller_Action
 
             $this->view->uri = $dbE->findByID(1);
 
-
+            $this->_helper->flashMessenger->addMessage("Endereço actualizado com sucesso.");
 
 
         }

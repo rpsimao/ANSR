@@ -4,24 +4,26 @@
 </div>
 <!-- /. ROW  -->
 <hr />
+
+<?php if (count($this->messages) > 0): ?>
+	<div class="alert alert-success alert-dismissable" style="margin-top: 10px">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+		<i class="fa fa-check-square"></i> <?=$this->messages[0];?>
+	</div>
+<?php endif; ?>
 <div class="row col-md-12">
 	<h3><i class="fa fa-users"></i> Utilizadores </h3>
 	<hr />
 </div>
 <div class="row col-md-6">
 
-	<?php if (count($this->messages) > 0): ?>
-		<div class="alert alert-success alert-dismissable" style="margin-top: 10px">
-			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-			<i class="fa fa-check-square"></i> <?=$this->messages[0];?>
-		</div>
-	<?php endif; ?>
+
 
 
 	<table class="table table-bordered table-striped table-head">
 		<caption>
 
-			<span class="pull-right"><a href="/admin/newuser" class="btn btn-primary"><i class="fa fa-plus"></i> Adicionar</a></span>
+			<span class="pull-right"><a href="/admin/newuser" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Adicionar</a></span>
 		</caption>
 		<thead>
 			<tr>

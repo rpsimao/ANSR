@@ -1,5 +1,12 @@
 <div class="col-md-12">
+    <div class="pull-right">
+        <?php $records = count($this->records);?>
+
+        Processos encontrados: <span class="badge"><?=$records?></span>
+
+    </div>
     <h2><i class="fa fa-search"></i> Resultados</h2>
+
 </div>
 </div>
 
@@ -13,9 +20,9 @@
     <table class="table table-bordered table-head table-striped">
         <thead>
         <tr>
-            <th>Nome</th>
-            <th>Data</th>
-            <th>Videos</th>
+            <th><i class="fa fa-file"></i> Nome</th>
+            <th><i class="fa fa-calendar"></i> Data</th>
+            <th><i class="fa fa-folder-open-o"></i> Detalhes</th>
         </tr>
         </thead>
         <tbody>

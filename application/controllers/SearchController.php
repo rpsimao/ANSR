@@ -20,6 +20,15 @@ class SearchController extends RPS_Controllers_Auth
 
             $db = new Application_Model_Registos();
             $this->view->records = $db->searchByDate($date);
+
+
+            if (count($this->view->records) < 1 )
+            {
+
+                $this->_helper->flashMessenger->addMessage("A pesquisa não obteve resultados.");
+                $this->redirect("/search");
+
+            }
             
 
         }
@@ -39,6 +48,14 @@ class SearchController extends RPS_Controllers_Auth
 
             $db = new Application_Model_Registos();
             $this->view->records = $db->searchByProcess($nome);
+
+            if (count($this->view->records) < 1)
+            {
+
+                $this->_helper->flashMessenger->addMessage("A pesquisa não obteve resultados.");
+                $this->redirect("/search");
+
+            }
 
 
         }

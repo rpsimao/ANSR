@@ -1,6 +1,6 @@
 
     <div class="col-md-12">
-        <h2>Detalhes <?= $this->escape($this->details[0]['nome']) ?> </h2>
+        <h2><i class="fa fa-wpforms"></i> Detalhes <?= $this->escape($this->details[0]['nome']) ?> </h2>
     </div>
 </div>
 
@@ -8,25 +8,21 @@
 <!-- /. ROW  -->
 <hr />
 
-<div class="col-md-12">
+<div class="col-md-6">
 
 <table class="table table-bordered table-head table-striped">
     <thead>
         <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Data</th>
-            <th>IP Entrada</th>
-            <th>IP Saída</th>
+            <th><i class="fa fa-file"></i> Nome</th>
+            <th><i class="fa fa-calendar"></i> Data</th>
+            <th><i class="fa fa-film"></i> Nº Vídeos</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td><?= $this->escape($this->details[0]['arquivo_id']); ?></td>
             <td><?= $this->escape($this->details[0]['nome']); ?></td>
             <td><?= $this->escape($this->details[0]['dia']); ?></td>
-            <td><?= $this->escape($this->details[0]['ip_entrada']); ?></td>
-            <td><?= $this->escape($this->details[0]['ip_saida']); ?></td>
+            <td><?= $this->escape(count($this->videos['videos'])); ?></td>
         </tr>
     </tbody>
 </table>
@@ -34,25 +30,40 @@
 </div>
 
 
+    <div class="col-md-12">
+        <h3><i class="fa fa-map-marker"></i> Endereço Vídeos</h3>
+    </div>
+
+    <!-- /. ROW  -->
+
+    <div class="col-md-12">
+        <ul>
+        <?php foreach ($this->videos['videos'] as $video): ?>
+                <li><i class="fa fa-folder-open-o"></i> <code>//SAN/pasta/<?=$this->escape($video['nome'].".".$video['tipo']) ?></code></li>
+        <?php endforeach; ?>
+        </ul>
+        <small><i class="fa fa-info-circle" style="color: #2b542c"> Estes links serão fornecidos pela API SIGA</i></small>
+    </div>
 <div class="col-md-12">
-    <h3>Vídeos</h3>
+    <h3><i class="fa fa-file-video-o"></i> Vídeos</h3>
 </div>
 
 <!-- /. ROW  -->
-<hr />
-    
+
+
 
 <?php foreach ($this->videos['videos'] as $video): ?>
 
     <div class="row text-center pad-top">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
             <div class="div-square">
-                <a href="#" data-toggle="modal" data-target="#video-<?= $this->escape($video['nome']) ?>">
+                <a href="#" data-toggle="modal" data-target="#video-<?=$this->escape($video['nome']) ?>">
                     <i class="fa fa-video-camera fa-5x"></i>
                     <h4><?= $this->escape($video['nome']) ?></h4>
                     <p>Res: <?= $this->escape($video['res']) ?> </p>
                 </a>
             </div>
+
         </div>
 
 
@@ -65,7 +76,7 @@
                     </div>
                     <div class="modal-body">
                         <video id="my-video-<?= $this->escape($video['nome']) ?>" class="video-js" controls preload="none" <?=RPS_Aux_VideoRES::size($this->escape($video['res']));?>
-                                data-setup="{'playbackRates': [1, 1.5, 2] }">
+                                data-setup='{"playbackRates": [1, 1.5, 2] }'>
                             <source src="http://vjs.zencdn.net/v/oceans.mp4" type='video/mp4'>
                             <p class="vjs-no-js">
                                 To view this video please enable JavaScript, and consider upgrading to a web browser that
