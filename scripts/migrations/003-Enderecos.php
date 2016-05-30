@@ -21,6 +21,7 @@ class Enderecos extends Akrabat_Db_Schema_AbstractChange
               polycom varchar(500) NOT NULL,
               san VARCHAR (500) NOT NULL,
               siga VARCHAR (500) NOT NULL,
+              token VARCHAR (500) NOT NULL,
               PRIMARY KEY (id)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
         $this->_db->query($sql);

@@ -10,13 +10,16 @@ class ApiController extends RPS_Controllers_Auth
 
     public function indexAction()
     {
-        // action body
+        $dbE = new Application_Model_Enderecos();
+        $this->view->token = $dbE->findByID(1);
     }
 
     public function restAction()
     {
 
-        $tokenID = "Nt8w6nMhF1E9MILX5SrWuQo893rlp7eZ";
+
+        $dbE = new Application_Model_Enderecos();
+        $tokenID = $dbE->findByID(1);
 
         $token = $this->_getParam("token");
 
@@ -25,7 +28,7 @@ class ApiController extends RPS_Controllers_Auth
         $process = $this->_getParam("processo");
 
 
-        if ($token !== $tokenID)
+        if ($token !== $tokenID[0]['token'])
         {
             $erro = [
 

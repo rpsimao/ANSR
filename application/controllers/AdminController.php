@@ -42,6 +42,7 @@ class AdminController extends Zend_Controller_Action
             $polycom = $this->getRequest()->getParam("polycom");
             $san = $this->getRequest()->getParam("san");
             $siga = $this->getRequest()->getParam("siga");
+            $token = $this->getRequest()->getParam("token");
 
 
             if ($polycom) {
@@ -52,9 +53,14 @@ class AdminController extends Zend_Controller_Action
             {
                 $dbE->updateRecord(['san' => $san], 1);
 
-            } else {
+            } else if ($siga) {
 
                 $dbE->updateRecord(['siga' => $siga], 1);
+
+            } else {
+
+                $dbE->updateRecord(['token' => $token], 1);
+
             }
 
             $this->view->uri = $dbE->findByID(1);
