@@ -30,7 +30,7 @@ class ApiController extends RPS_Controllers_Auth
 
         if ($token !== $tokenID[0]['token'])
         {
-            $erro = [
+            $error = [
 
                 "status"=> 401,
                 "message" => "Token Invalido",
@@ -44,7 +44,7 @@ class ApiController extends RPS_Controllers_Auth
             $this->_response->clearBody();
             $this->_response->clearHeaders();
             $this->_response->setHttpResponseCode(401);
-            $this->_response->append("msg", Zend_Json_Encoder::encode($erro));
+            $this->_response->append("msg", Zend_Json_Encoder::encode($error));
 
 
         } else {
@@ -74,7 +74,7 @@ class ApiController extends RPS_Controllers_Auth
 
             else {
 
-               $erro = [
+               $error = [
 
                     "status"=> 400,
                     "message" => "Pedido invalido. O metodo nao existe.",
@@ -82,18 +82,13 @@ class ApiController extends RPS_Controllers_Auth
                 ];
 
 
-               /*$this->_helper->json($erro, true, array(
-                    'enableJsonExprFinder' => true,
-                    'keepLayouts'          => false,
-                ));*/
-
                 $this->_helper->viewRenderer->setNoRender(true);
                 $this->_helper->layout->disableLayout();
 
                 $this->_response->clearBody();
                 $this->_response->clearHeaders();
                 $this->_response->setHttpResponseCode(400);
-                $this->_response->append("msg", Zend_Json_Encoder::encode($erro));
+                $this->_response->append("msg", Zend_Json_Encoder::encode($error));
 
 
 
