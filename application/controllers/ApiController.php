@@ -35,12 +35,16 @@ class ApiController extends RPS_Controllers_Auth
                 "status"=> 401,
                 "message" => "Token Invalido",
                 "code" => 401
+
             ];
 
-            $this->_helper->json($erro, true, array(
-                'enableJsonExprFinder' => true,
-                'keepLayouts'          => false,
-            ));
+            $this->_helper->viewRenderer->setNoRender(true);
+            $this->_helper->layout->disableLayout();
+
+            $this->_response->clearBody();
+            $this->_response->clearHeaders();
+            $this->_response->setHttpResponseCode(401);
+            $this->_response->append("msg", Zend_Json_Encoder::encode($erro));
 
 
         } else {
@@ -70,17 +74,29 @@ class ApiController extends RPS_Controllers_Auth
 
             else {
 
-                $erro = [
+               $erro = [
 
                     "status"=> 400,
                     "message" => "Pedido invalido. O metodo nao existe.",
                     "code" => 400
                 ];
 
-                $this->_helper->json($erro, true, array(
+
+               /*$this->_helper->json($erro, true, array(
                     'enableJsonExprFinder' => true,
                     'keepLayouts'          => false,
-                ));
+                ));*/
+
+                $this->_helper->viewRenderer->setNoRender(true);
+                $this->_helper->layout->disableLayout();
+
+                $this->_response->clearBody();
+                $this->_response->clearHeaders();
+                $this->_response->setHttpResponseCode(400);
+                $this->_response->append("msg", Zend_Json_Encoder::encode($erro));
+
+
+
 
 
             }
